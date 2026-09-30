@@ -1,0 +1,49 @@
+# Build & Target directories
+target/
+**/target/
+build/
+**/build/
+dist/
+**/dist/
+
+# Dependencies & Environments
+node_modules/
+**/node_modules/
+venv/
+.venv/
+env/
+__pycache__/
+**/*.pyc
+**/*.pyo
+
+# Local dev tools & binaries
+tools/
+**/tools/
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.exe
+*.dll
+*.class
+*.jar
+*.war
+
+# IDE & Editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs & Environment Variables
+*.log
+.env
+.env.local
+.env.*.local
+
+# Databases & local storage
+*.db
+*.sqlite
+*.sqlite3

@@ -1,0 +1,21 @@
+{
+  "name": "lessonfoundry-root",
+  "version": "1.0.0",
+  "description": "LessonFoundry - Constraint-Aware Learning Asset Generation Studio",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview",
+    "start": "powershell -ExecutionPolicy Bypass -File .\\scripts\\start_all.ps1"
+  },
+  "keywords": [
+    "education",
+    "genai",
+    "rag",
+    "react",
+    "spring-boot",
+    "fastapi"
+  ],
+  "author": "LessonFoundry Team",
+  "license": "MIT"
+}
