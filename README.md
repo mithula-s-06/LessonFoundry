@@ -1,3 +1,22 @@
+# Team name: Synthesis
+# Team leader: 
+   Name: Mithula S
+   Phone number: 9751123395
+   Mail id: mithula.sj@gmail.com
+# Member 1:
+   Name: Athmika M B
+   Phone number: 7305075066
+   Mail id: athmika8124@gmail.com
+# Member 2:
+   Name: Tharanya S
+   Phone number: 9597560483
+   Mail id: stharanya43@gmail.com
+# Member 3:
+   Name: Vasanth S
+   Phone number: 8248804772
+   Mail id: vasanthvkp2007@gmail.com
+# College: Karpagam College of Engineering, Coimbatore
+
 # LessonFoundry – Constraint-Aware Learning Asset Generation Studio
 
 [![Full-Stack Architecture](https://img.shields.io/badge/Stack-React%20%7C%20Spring%20Boot%20%7C%20FastAPI%20%7C%20RAG-cyan)](https://github.com/LessonFoundry)
