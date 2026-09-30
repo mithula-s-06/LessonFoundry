@@ -206,7 +206,7 @@ export const AdminUsers = () => {
               <tr>
                 <th className="p-4">User Details</th>
                 <th className="p-4">Email</th>
-                <th className="p-4">Role Permission</th>
+                <th className="p-4">User Role</th>
                 <th className="p-4">Status</th>
                 <th className="p-4 text-center">Actions</th>
               </tr>
@@ -252,16 +252,9 @@ export const AdminUsers = () => {
                       </td>
                       <td className="p-4 text-slate-300 font-mono text-[11px]">{u.email}</td>
                       <td className="p-4">
-                        <select
-                          value={u.role}
-                          onChange={(e) => handleRoleChange(u.id, e.target.value)}
-                          disabled={isSelf}
-                          className={`bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-semibold focus:outline-none focus:border-purple-500 transition-colors ${roleColors[u.role] || 'text-slate-200'} ${isSelf ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
-                        >
-                          <option value="TEACHER">TEACHER</option>
-                          <option value="STUDENT">STUDENT</option>
-                          <option value="ADMIN">ADMIN</option>
-                        </select>
+                        <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold border ${roleColors[u.role] || 'bg-slate-800 text-slate-300 border-slate-700'}`}>
+                          {u.role}
+                        </span>
                       </td>
                       <td className="p-4">
                         <button
@@ -419,44 +412,7 @@ export const AdminUsers = () => {
               </div>
             </div>
 
-            {/* Quick Actions inside modal */}
-            <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3">
-              <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">Administrative Controls</h4>
-              <div className="flex flex-wrap items-center gap-2.5">
-                <button
-                  onClick={() => handleStatusToggle(selectedUser.id, selectedUser.enabled)}
-                  disabled={currentAdmin?.id === selectedUser.id}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                    selectedUser.enabled
-                      ? 'bg-rose-950/60 text-rose-300 border-rose-500/30 hover:bg-rose-900/60'
-                      : 'bg-emerald-950/60 text-emerald-300 border-emerald-500/30 hover:bg-emerald-900/60'
-                  } ${currentAdmin?.id === selectedUser.id ? 'opacity-50 cursor-not-allowed' : ''}`}
-                >
-                  {selectedUser.enabled ? 'Disable Account' : 'Activate Account'}
-                </button>
 
-                <button
-                  onClick={() => {
-                    const nextRole = selectedUser.role === 'TEACHER' ? 'STUDENT' : selectedUser.role === 'STUDENT' ? 'ADMIN' : 'TEACHER';
-                    handleRoleChange(selectedUser.id, nextRole);
-                  }}
-                  disabled={currentAdmin?.id === selectedUser.id}
-                  className="px-3 py-1.5 rounded-xl text-xs font-bold bg-purple-950/60 text-purple-300 border border-purple-500/30 hover:bg-purple-900/60 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Cycle Role ({selectedUser.role})
-                </button>
-
-                {currentAdmin?.id !== selectedUser.id && (
-                  <button
-                    onClick={() => setUserToDelete(selectedUser)}
-                    className="px-3 py-1.5 rounded-xl text-xs font-bold bg-rose-600/20 text-rose-300 border border-rose-500/40 hover:bg-rose-600 hover:text-white transition-all ml-auto flex items-center gap-1.5"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                    <span>Delete User</span>
-                  </button>
-                )}
-              </div>
-            </div>
 
             <div className="flex justify-end pt-2">
               <button

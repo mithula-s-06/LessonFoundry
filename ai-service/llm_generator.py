@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import urllib.parse
 import requests
 from typing import List, Dict, Any, Optional
 from models import GeneratedAsset, SourceReference, ProvenanceItem
@@ -275,7 +276,14 @@ class LLMGenerator:
                     {"pitfall": f"Overlooking Intermediate Stages in {topic}", "correction": f"Assuming {t0} directly transitions to {t4} without intermediate {t1} coordination leads to diagnostic errors."},
                     {"pitfall": f"Confusing {t1} with {t2}", "correction": f"Distinguish between primary driving factors ({t1}) and resulting structural manifestations ({t2})."}
                 ],
-                "summary": f"A comprehensive grasp of {topic} requires recognizing how {t0} and {t1} interact, following the systematic sequence from source evidence, and verifying each conclusion with scientific rigor."
+                "summary": f"A comprehensive grasp of {topic} requires recognizing how {t0} and {t1} interact, following the systematic sequence from source evidence, and verifying each conclusion with scientific rigor.",
+                "conceptDiagramUrl": f"https://image.pollinations.ai/prompt/{urllib.parse.quote(f'clean modern scientific textbook educational diagram of {topic} {domain} with clear labeled steps on crisp clean background high resolution vector illustration')}?width=1200&height=675&nologo=true",
+                "conceptDiagram": {
+                    "title": f"Structural Diagram: {topic}",
+                    "domain": domain,
+                    "caption": f"Grounded scientific schematic of {t0} and {t1} mechanisms in {topic}.",
+                    "imageUrl": f"https://image.pollinations.ai/prompt/{urllib.parse.quote(f'clean modern scientific textbook educational diagram of {topic} {domain} with clear labeled steps on crisp clean background high resolution vector illustration')}?width=1200&height=675&nologo=true"
+                }
             },
             objectivesCovered=obj_ids,
             sourceReferences=src_refs[:3],
